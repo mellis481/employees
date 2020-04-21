@@ -1,11 +1,12 @@
 import React from "react";
+import { BrowserRouter, Link } from "react-router-dom";
 
 export interface Employee {
   id: number;
-  employee_name: string;
-  employee_salary: number;
-  employee_age: number;
-  profile_image: string;
+  name: string;
+  username: string;
+  email: string;
+  website: string;
 }
 
 interface ComponentState {
@@ -20,11 +21,9 @@ export default class Root extends React.Component<any, ComponentState> {
   }
 
   componentDidMount() {
-    fetch("http://dummy.restapiexample.com/api/v1/employees").then(
-      (response) => {
-        response.json().then((data) => this.setState({ employees: data.data }));
-      }
-    );
+    fetch("https://jsonplaceholder.typicode.com/users").then((response) => {
+      response.json().then((employees) => this.setState({ employees }));
+    });
   }
 
   render() {
@@ -39,22 +38,26 @@ export default class Root extends React.Component<any, ComponentState> {
     }
 
     return (
-      <>
-        <table className="table table-striped table-sm">
+      <BrowserRouter basename="/">
+        <table className="table table-striped table-bordered table-sm">
           <thead>
             <tr>
               <th scope="col">ID</th>
               <th scope="col">Name</th>
-              <th scope="col">Age</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
             </tr>
           </thead>
           <tbody>
             {employees.map((employee: Employee) => {
               return (
                 <tr key={employee.id}>
-                  <th>{employee.id}</th>
-                  <td>{employee.employee_name}</td>
-                  <td>{employee.employee_age}</td>
+                  <th>
+                    <Link to={`/employees/${employee.id}`}>{employee.id}</Link>
+                  </th>
+                  <td>{employee.name}</td>
+                  <td>{employee.username}</td>
+                  <td>{employee.email}</td>
                 </tr>
               );
             })}
@@ -63,7 +66,7 @@ export default class Root extends React.Component<any, ComponentState> {
         <p>
           <em>{this.props.name} using React</em>
         </p>
-      </>
+      </BrowserRouter>
     );
   }
 }
