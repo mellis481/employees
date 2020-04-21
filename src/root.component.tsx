@@ -61,7 +61,7 @@ export default class Root extends React.Component<any, ComponentState> {
           </tbody>
         </table>
         <p>
-          <em>{this.props.name}</em>
+          <em>{this.props.name} using React</em>
         </p>
       </>
     );
