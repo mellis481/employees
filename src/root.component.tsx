@@ -3,10 +3,10 @@ import { BrowserRouter, Link } from "react-router-dom";
 
 export interface Employee {
   id: number;
-  name: string;
-  username: string;
+  first_name: string;
+  last_name: string;
   email: string;
-  website: string;
+  avatar: string;
 }
 
 interface ComponentState {
@@ -21,8 +21,8 @@ export default class Root extends React.Component<any, ComponentState> {
   }
 
   componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/users").then((response) => {
-      response.json().then((employees) => this.setState({ employees }));
+    fetch("https://reqres.in/api/users").then((response) => {
+      response.json().then((data) => this.setState({ employees: data.data }));
     });
   }
 
@@ -43,8 +43,8 @@ export default class Root extends React.Component<any, ComponentState> {
           <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Username</th>
+              <th scope="col">First Name</th>
+              <th scope="col">Last Name</th>
               <th scope="col">Email</th>
             </tr>
           </thead>
@@ -55,8 +55,8 @@ export default class Root extends React.Component<any, ComponentState> {
                   <th>
                     <Link to={`/employees/${employee.id}`}>{employee.id}</Link>
                   </th>
-                  <td>{employee.name}</td>
-                  <td>{employee.username}</td>
+                  <td>{employee.first_name}</td>
+                  <td>{employee.last_name}</td>
                   <td>{employee.email}</td>
                 </tr>
               );
