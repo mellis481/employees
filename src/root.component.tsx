@@ -1,3 +1,4 @@
+import { VtxButton } from "@vertexinc/vtx-ui-react-component-library";
 import React from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 
@@ -63,7 +64,9 @@ export default class Root extends React.Component<any, ComponentState> {
             })}
           </tbody>
         </table>
-        <em>{this.props.name} using React</em>
+        <VtxButton type="link" onClick={() => alert("version v0.3.0")}>
+          Click Me
+        </VtxButton>
       </BrowserRouter>
     );
   }
