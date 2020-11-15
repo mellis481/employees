@@ -8,7 +8,7 @@ const lifecycles = singleSpaReact({
   React,
   ReactDOM,
   rootComponent: Root,
-  domElementGetter
+  // domElementGetter
 });
 
 export const { bootstrap, mount, unmount } = lifecycles;

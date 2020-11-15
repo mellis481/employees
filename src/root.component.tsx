@@ -26,6 +26,10 @@ export default class Root extends React.Component<any, ComponentState> {
     });
   }
 
+  componentDidCatch(error, errorInfo) {
+    console.log(error);
+  }
+
   render() {
     const { employees } = this.state;
 
