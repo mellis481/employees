@@ -9,16 +9,16 @@ const styles = require("!!to-string-loader!css-loader!./styles.css");
 
 // Reference to shadow DOM root in case you need it for 'portaled'
 // Example in date-picker-popover.tsx
-export let shadowDomRoot: React.RefObject<HTMLElement> | undefined;
+export let mfeWebComponent: React.RefObject<HTMLElement> | undefined;
 
 class WrappedRoot extends React.Component<any> {
   constructor(props: any) {
     super(props);
-    shadowDomRoot = React.createRef();
+    mfeWebComponent = React.createRef();
   }
   render() {
     return (
-      <root.div ref={shadowDomRoot} mode="open">
+      <root.div ref={mfeWebComponent} mode="open">
         <div className="mf-demo-employees">
           <style type="text/css">{styles}</style>
           <Root />

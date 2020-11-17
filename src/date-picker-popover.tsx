@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { shadowDomRoot } from "./mf-demo-employees";
+import { mfeWebComponent } from "./mf-demo-employees";
 
 const datePickerPopover: React.SFC = ({ children }) => {
-  const root = shadowDomRoot?.current?.shadowRoot?.querySelector(
+  const root = mfeWebComponent?.current?.shadowRoot?.querySelector(
     ".mf-demo-employees"
   );
   if (root) {
