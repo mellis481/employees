@@ -53,8 +53,7 @@
     "@types/webpack-env": "^1.15.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2",
-    "react-shadow": "^18.5.1"
+    "react-router-dom": "^5.1.2"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
